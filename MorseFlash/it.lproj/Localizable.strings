@@ -1,0 +1,14 @@
+"tapToStartText" = "Premere il pulsante del microfono per avviare la registrazione";
+"speakText" = "Parla...";
+"cancelPlayingText" = "Interrompi la riproduzione";
+"startPlayingText" = "Riproduci con la torcia";
+"noTextForPlaying" = "Nessun messaggio codificato";
+"unsupportedLocale" = "Regione non supportata";
+"errorAccessCamera" = "Impossibile accedere alla fotocamera";
+"errorTurnOnFlashlight" = "Impossibile accendere la torcia";
+"errorTurnOffFlashlight" = "Impossibile spegnere la torcia";
+"deniedSpeechRecognition" = "È necessario abilitare l'accesso al riconoscimento vocale nelle impostazioni";
+"restrictedSpeechRecognition" = "Riconoscimento vocale limitato su questo dispositivo";
+"notRecognisedSpeechRecognition" = "Il riconoscimento vocale non è ancora autorizzato";
+"selectLanguage" = "Scelta della lingua";
+"needEnableAccessToSpeechRecognitionText" = "Consenti l'accesso al riconoscimento vocale nelle impostazioni";

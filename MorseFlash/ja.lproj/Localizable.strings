@@ -1,0 +1,14 @@
+"tapToStartText" = "録音を開始するにはマイクボタンを押してください";
+"speakText" = "話してください...";
+"cancelPlayingText" = "再生を停止する";
+"startPlayingText" = "懐中電灯で再生する";
+"noTextForPlaying" = "エンコードされたメッセージがありません";
+"unsupportedLocale" = "地域はサポートされていません";
+"errorAccessCamera" = "カメラにアクセスできません";
+"errorTurnOnFlashlight" = "懐中電灯をオンにできません";
+"errorTurnOffFlashlight" = "懐中電灯をオフにできません";
+"deniedSpeechRecognition" = "設定で音声認識へのアクセスを有効にする必要があります";
+"restrictedSpeechRecognition" = "このデバイスで音声認識が制限されています";
+"notRecognisedSpeechRecognition" = "音声認識はまだ承認されていません";
+"selectLanguage" = "言語の選択";
+"needEnableAccessToSpeechRecognitionText" = "設定で音声認識へのアクセスを許可する";

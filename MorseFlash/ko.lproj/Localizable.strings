@@ -1,0 +1,14 @@
+"tapToStartText" = "녹음을 시작하려면 마이크 버튼을 누르세요";
+"speakText" = "말씀해주세요...";
+"cancelPlayingText" = "재생 중지";
+"startPlayingText" = "플래시로 재생";
+"noTextForPlaying" = "코딩된 메시지가 없습니다";
+"unsupportedLocale" = "지역이 지원되지 않습니다";
+"errorAccessCamera" = "카메라에 접근할 수 없습니다";
+"errorTurnOnFlashlight" = "플래시를 켤 수 없습니다";
+"errorTurnOffFlashlight" = "플래시를 끌 수 없습니다";
+"deniedSpeechRecognition" = "설정에서 음성 인식 액세스를 활성화해야 합니다";
+"restrictedSpeechRecognition" = "이 장치에서 음성 인식이 제한됩니다";
+"notRecognisedSpeechRecognition" = "음성 인식이 아직 승인되지 않았습니다";
+"selectLanguage" = "언어 선택";
+"needEnableAccessToSpeechRecognitionText" = "설정에서 음성 인식 액세스 허용";

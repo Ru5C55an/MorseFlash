@@ -1,0 +1,14 @@
+"tapToStartText" = "Press the microphone button to start recording";
+"speakText" = "Speak...";
+"cancelPlayingText" = "Stop playing";
+"startPlayingText" = "Play with flashlight";
+"noTextForPlaying" = "No encoded message";
+"unsupportedLocale" = "Locale not supported";
+"errorAccessCamera" = "Cannot access camera";
+"errorTurnOnFlashlight" = "Cannot turn on flashlight";
+"errorTurnOffFlashlight" = "Cannot turn off flashlight";
+"deniedSpeechRecognition" = "Speech recognition access must be enabled in settings.";
+"restrictedSpeechRecognition" = "Speech recognition is restricted on this device";
+"notRecognisedSpeechRecognition" = "Speech recognition is not yet authorized";
+"selectLanguage" = "Language selection";
+"needEnableAccessToSpeechRecognitionText" = "Allow access to speech recognition in settings";

@@ -1,0 +1,14 @@
+"tapToStartText" = "按下麥克風按鈕開始錄音";
+"speakText" = "請說...";
+"cancelPlayingText" = "停止播放";
+"startPlayingText" = "用手電筒播放";
+"noTextForPlaying" = "沒有編碼信息";
+"unsupportedLocale" = "不支援此區域";
+"errorAccessCamera" = "無法訪問相機";
+"errorTurnOnFlashlight" = "無法開啟手電筒";
+"errorTurnOffFlashlight" = "無法關閉手電筒";
+"deniedSpeechRecognition" = "需要在設置中啟用語音識別權限";
+"restrictedSpeechRecognition" = "此裝置上的語音識別受限";
+"notRecognisedSpeechRecognition" = "語音識別尚未獲得授權";
+"selectLanguage" = "語言選擇";
+"needEnableAccessToSpeechRecognitionText" = "在設置中允許語音識別訪問";

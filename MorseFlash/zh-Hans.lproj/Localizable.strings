@@ -1,0 +1,14 @@
+"tapToStartText" = "点击麦克风按钮开始录音";
+"speakText" = "请说...";
+"cancelPlayingText" = "停止播放";
+"startPlayingText" = "用手电筒播放";
+"noTextForPlaying" = "没有编码信息";
+"unsupportedLocale" = "不支持该地区";
+"errorAccessCamera" = "无法访问相机";
+"errorTurnOnFlashlight" = "无法开启手电筒";
+"errorTurnOffFlashlight" = "无法关闭手电筒";
+"deniedSpeechRecognition" = "需要在设置中启用语音识别权限";
+"restrictedSpeechRecognition" = "该设备上的语音识别受限";
+"notRecognisedSpeechRecognition" = "语音识别尚未获得授权";
+"selectLanguage" = "语言选择";
+"needEnableAccessToSpeechRecognitionText" = "在设置中允许语音识别访问";

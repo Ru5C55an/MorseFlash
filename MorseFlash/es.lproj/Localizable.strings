@@ -1,0 +1,14 @@
+"tapToStartText" = "Presione el botón del micrófono para comenzar la grabación";
+"speakText" = "Hable...";
+"cancelPlayingText" = "Detener reproducción";
+"startPlayingText" = "Reproducir con linterna";
+"noTextForPlaying" = "No hay mensaje codificado";
+"unsupportedLocale" = "La ubicación no es compatible";
+"errorAccessCamera" = "No se puede acceder a la cámara";
+"errorTurnOnFlashlight" = "No se puede encender la linterna";
+"errorTurnOffFlashlight" = "No se puede apagar la linterna";
+"deniedSpeechRecognition" = "Es necesario habilitar el acceso al reconocimiento de voz en la configuración";
+"restrictedSpeechRecognition" = "El reconocimiento de voz está restringido en este dispositivo";
+"notRecognisedSpeechRecognition" = "El reconocimiento de voz aún no está autorizado";
+"selectLanguage" = "Selección de idioma";
+"needEnableAccessToSpeechRecognitionText" = "Permitir acceso al reconocimiento de voz en la configuración";

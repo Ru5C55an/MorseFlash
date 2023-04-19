@@ -1,0 +1,14 @@
+"tapToStartText" = "Kaydı başlatmak için mikrofon düğmesine basın";
+"speakText" = "Konuşun...";
+"cancelPlayingText" = "Oynatmayı durdur";
+"startPlayingText" = "Fenerle oynat";
+"noTextForPlaying" = "Kodlanmış mesaj yok";
+"unsupportedLocale" = "Yer desteklenmiyor";
+"errorAccessCamera" = "Kameraya erişilemiyor";
+"errorTurnOnFlashlight" = "Fener açılamıyor";
+"errorTurnOffFlashlight" = "Fener kapatılamıyor";
+"deniedSpeechRecognition" = "Ayarlarda ses tanıma erişimi etkinleştirilmelidir";
+"restrictedSpeechRecognition" = "Bu cihazda konuşma tanıma sınırlıdır";
+"notRecognisedSpeechRecognition" = "Konuşma tanıma henüz yetkilendirilmedi";
+"selectLanguage" = "Dil Seçimi";
+"needEnableAccessToSpeechRecognitionText" = "Ayarlar'da konuşma tanıma erişimine izin ver";

@@ -1,0 +1,12 @@
+"tapToStartText" = "Tap the button to start recording";
+"speakText" = "Speak...";
+"cancelPlayingText" = "Stop playback";
+"startPlayingText" = "Play with flashlight";
+"noTextForPlaying" = "No encoded message";
+"unsupportedLocale" = "Locale is not supported";
+"errorAccessCamera" = "Unable to access camera";
+"errorTurnOnFlashlight" = "Unable to turn on flashlight";
+"errorTurnOffFlashlight" = "Unable to turn off flashlight";
+"deniedSpeechRecognition" = "User denied access to speech recognition";
+"restrictedSpeechRecognition" = "Speech recognition is restricted on this device";
+"notRecognisedSpeechRecognition" = "Speech recognition is not yet authorized";

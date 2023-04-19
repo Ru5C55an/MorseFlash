@@ -1,0 +1,12 @@
+"tapToStartText" = "點擊按鈕開始錄音";
+"speakText" = "請說...";
+"cancelPlayingText" = "停止播放";
+"startPlayingText" = "用手電筒播放";
+"noTextForPlaying" = "沒有編碼信息";
+"unsupportedLocale" = "不支持該地區";
+"errorAccessCamera" = "無法訪問相機";
+"errorTurnOnFlashlight" = "無法開啟手電筒";
+"errorTurnOffFlashlight" = "無法關閉手電筒";
+"deniedSpeechRecognition" = "用戶拒絕訪問語音識別";
+"restrictedSpeechRecognition" = "該設備上的語音識別受限";
+"notRecognisedSpeechRecognition" = "語音識別尚未獲得授權";

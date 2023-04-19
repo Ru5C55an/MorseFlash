@@ -1,0 +1,14 @@
+"tapToStartText" = "Нажмите кнопку микрофона, чтобы начать запись";
+"speakText" = "Говорите...";
+"cancelPlayingText" = "Завершить воспроизведение";
+"startPlayingText" = "Воспроизвести фонариком";
+"noTextForPlaying" = "Нет закодированного сообщения";
+"unsupportedLocale" = "Локаль не поддерживается";
+"errorAccessCamera" = "Не удается получить доступ к камере";
+"errorTurnOnFlashlight" = "Невозможно включить фонарик";
+"errorTurnOffFlashlight" = "Невозможно выключить фонарик";
+"deniedSpeechRecognition" = "Необходимо включить доступ к распознаванию речи в настройках";
+"restrictedSpeechRecognition" = "Распознавание речи ограничено на этом устройстве";
+"notRecognisedSpeechRecognition" = "Распознавание речи еще не авторизовано";
+"selectLanguage" = "Выбор языка";
+"needEnableAccessToSpeechRecognitionText" = "Разрешить доступ к распознаванию речи в настройках";

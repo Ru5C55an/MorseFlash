@@ -1,0 +1,14 @@
+"tapToStartText" = "Drücken Sie die Mikrofontaste, um die Aufnahme zu starten";
+"speakText" = "Sprechen Sie...";
+"cancelPlayingText" = "Wiedergabe stoppen";
+"startPlayingText" = "Mit der Taschenlampe abspielen";
+"noTextForPlaying" = "Keine codierte Nachricht";
+"unsupportedLocale" = "Region wird nicht unterstützt";
+"errorAccessCamera" = "Kamera kann nicht zugegriffen werden";
+"errorTurnOnFlashlight" = "Taschenlampe kann nicht eingeschaltet werden";
+"errorTurnOffFlashlight" = "Taschenlampe kann nicht ausgeschaltet werden";
+"deniedSpeechRecognition" = "Der Zugriff auf die Spracherkennung muss in den Einstellungen aktiviert werden";
+"restrictedSpeechRecognition" = "Spracherkennung auf diesem Gerät eingeschränkt";
+"notRecognisedSpeechRecognition" = "Spracherkennung ist noch nicht autorisiert";
+"selectLanguage" = "Sprachauswahl";
+"needEnableAccessToSpeechRecognitionText" = "Zugriff auf die Spracherkennung in den Einstellungen erlauben";

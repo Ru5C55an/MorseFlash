@@ -1,0 +1,14 @@
+"tapToStartText" = "اضغط على زر الميكروفون لبدء التسجيل";
+"speakText" = "تحدث...";
+"cancelPlayingText" = "إيقاف التشغيل";
+"startPlayingText" = "تشغيل مع الكشاف";
+"noTextForPlaying" = "لا توجد رسالة مشفرة";
+"unsupportedLocale" = "اللغة المحلية غير معتمدة";
+"errorAccessCamera" = "لا يمكن الوصول إلى الكاميرا";
+"errorTurnOnFlashlight" = "لا يمكن تشغيل الكشاف";
+"errorTurnOffFlashlight" = "لا يمكن إيقاف الكشاف";
+"deniedSpeechRecognition" = "يجب تمكين وصول التعرف على الصوت في الإعدادات";
+"restrictedSpeechRecognition" = "تم تقييد تعرف الكلام على هذا الجهاز";
+"notRecognisedSpeechRecognition" = "لم يتم تفويض تعرف الكلام حتى الآن";
+"selectLanguage" = "اللغة";
+"needEnableAccessToSpeechRecognitionText" = "السماح بالوصول إلى التعرف على الكلام في الإعدادات";

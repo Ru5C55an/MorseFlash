@@ -1,0 +1,14 @@
+"tapToStartText" = "Tryck på mikrofonknappen för att starta inspelningen";
+"speakText" = "Tala...";
+"cancelPlayingText" = "Stoppa uppspelning";
+"startPlayingText" = "Spela upp med ficklampa";
+"noTextForPlaying" = "Inget kodat meddelande";
+"unsupportedLocale" = "Platsen stöds inte";
+"errorAccessCamera" = "Kan inte få åtkomst till kameran";
+"errorTurnOnFlashlight" = "Kan inte slå på ficklampan";
+"errorTurnOffFlashlight" = "Kan inte stänga av ficklampan";
+"deniedSpeechRecognition" = "Röstigenkänning måste aktiveras i inställningarna";
+"restrictedSpeechRecognition" = "Röstigenkänning är begränsad på den här enheten";
+"notRecognisedSpeechRecognition" = "Röstigenkänning har ännu inte godkänts";
+"selectLanguage" = "Språkval";
+"needEnableAccessToSpeechRecognitionText" = "Tillåt åtkomst till röstigenkänning i inställningarna";
