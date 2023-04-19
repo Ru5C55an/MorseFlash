@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "語音識別尚未獲得授權";
 "selectLanguage" = "語言選擇";
 "needEnableAccessToSpeechRecognitionText" = "在設置中允許語音識別訪問";
+"insertMorseCode" = "將摩爾斯碼以格式 \"... . -..- -.-. ..-\" 插入";
+"textInMorseCode" = "摩爾斯電碼文本";
+"morseCodeToText" = "摩爾斯電碼轉文本";

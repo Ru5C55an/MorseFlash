@@ -19,14 +19,14 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         var tabBarList = [UIViewController]()
 
         let textToMorseVC = UINavigationController(rootViewController: TextToMorseViewController())
-        textToMorseVC.title = "Текст в морзе"
+        textToMorseVC.title = "textInMorseCode".localized
         textToMorseVC.tabBarItem.image = UIImage(systemName: "text.bubble")
         textToMorseVC.tabBarItem.selectedImage = UIImage(systemName: "text.bubble.fill")
         textToMorseVC.tabBarItem.tag = 0
         tabBarList.insert(textToMorseVC, at: 0)
 
         let morseToTextVC = UINavigationController(rootViewController: MorseToTextViewController())
-        morseToTextVC.title = "Морзе в текст"
+        morseToTextVC.title = "morseCodeToText".localized
         morseToTextVC.tabBarItem.image = UIImage(systemName: "ellipsis.bubble")
         morseToTextVC.tabBarItem.selectedImage = UIImage(systemName: "ellipsis.bubble.fill")
         morseToTextVC.tabBarItem.tag = 1

@@ -28,14 +28,8 @@ final class TextToMorseViewController: UIViewController {
         static let deniedSpeechRecognition = "deniedSpeechRecognition".localized
         static let restrictedSpeechRecognition = "restrictedSpeechRecognition".localized
         static let notRecognisedSpeechRecognition = "notRecognisedSpeechRecognition".localized
-        static let morseToText = "Морзе в текст"
         static let alertPresentDuration: TimeInterval = 4
     }
-
-    private var speechRecognizer = SFSpeechRecognizer(locale: Locale.current)
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    private var recognitionTask: SFSpeechRecognitionTask?
-    private let audioEngine = AVAudioEngine()
 
     // MARK: - UI Elements
     private let topStackView: UIStackView = {
@@ -100,8 +94,14 @@ final class TextToMorseViewController: UIViewController {
     }()
 
     // MARK: - Properties
+    private var speechRecognizer = SFSpeechRecognizer(locale: Locale.current)
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
     private var isFlashing = false
+    private var isRecording: Bool = false
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Создание кнопки с изображением шестеренки
@@ -139,11 +139,17 @@ final class TextToMorseViewController: UIViewController {
         }
     }
 
+    // MARK: - Handlers
     @objc private func showLanguagePicker() {
         stopRecording()
         stopFlashlight()
         DictionaryManager.shared.showLanguagePicker(from: self) {
+            guard self.speechRecognizer?.locale != DictionaryManager.shared.locale else {
+                return
+            }
             self.speechRecognizer = SFSpeechRecognizer(locale: DictionaryManager.shared.locale)
+            self.textView.text.removeAll()
+            self.textView.delegate?.textViewDidChange?(self.textView)
         }
     }
 
@@ -155,6 +161,66 @@ final class TextToMorseViewController: UIViewController {
         }
     }
 
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view is UITextField {
+            return false
+        }
+        return true
+    }
+
+    // Функция для обработки нажатия на кнопку записи голоса
+    @objc private func recordButtonTapped() {
+        switch SFSpeechRecognizer.authorizationStatus() {
+        case .notDetermined:
+            SFSpeechRecognizer.requestAuthorization({ [weak self] authStatus in
+                switch authStatus {
+                case .notDetermined:
+                    self?.showNotAuthorizedSpeechRecognitionError()
+                    return
+                case .denied:
+                    self?.showSpeechRecognitionDeniedError()
+                    return
+                case .restricted:
+                    self?.showRestrictedSpeechRecognitionError()
+                    return
+                case .authorized:
+                    break
+                @unknown default:
+                    return
+                }
+            })
+        case .denied:
+            showSpeechRecognitionDeniedError()
+            return
+        case .restricted:
+            showRestrictedSpeechRecognitionError()
+            return
+        case .authorized:
+            break
+        @unknown default:
+            return
+        }
+
+        if audioEngine.isRunning {
+            stopRecording()
+        } else {
+            recordButton.tintColor = .systemOrange
+            textView.text = Constants.speakText
+            startRecording()
+            animateRecordButton(true)
+        }
+    }
+
+    @objc private func openMorseToTextVC() {
+        let vc = MorseToTextViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    // MARK: - Functions
     private func playFlashlight() {
         guard let flashlight = AVCaptureDevice.default(for: .video) else {
             print(Constants.errorAccessCamera)
@@ -242,60 +308,6 @@ final class TextToMorseViewController: UIViewController {
         return attributedString
     }
 
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view is UITextField {
-            return false
-        }
-        return true
-    }
-
-    // Функция для обработки нажатия на кнопку записи голоса
-    @objc private func recordButtonTapped() {
-        switch SFSpeechRecognizer.authorizationStatus() {
-        case .notDetermined:
-            SFSpeechRecognizer.requestAuthorization({ [weak self] authStatus in
-                switch authStatus {
-                case .notDetermined:
-                    self?.showNotAuthorizedSpeechRecognitionError()
-                    return
-                case .denied:
-                    self?.showSpeechRecognitionDeniedError()
-                    return
-                case .restricted:
-                    self?.showRestrictedSpeechRecognitionError()
-                    return
-                case .authorized:
-                    break
-                @unknown default:
-                    return
-                }
-            })
-        case .denied:
-            showSpeechRecognitionDeniedError()
-            return
-        case .restricted:
-            showRestrictedSpeechRecognitionError()
-            return
-        case .authorized:
-            break
-        @unknown default:
-            return
-        }
-
-        if audioEngine.isRunning {
-            stopRecording()
-        } else {
-            recordButton.tintColor = .systemOrange
-            textView.text = Constants.speakText
-            startRecording()
-            animateRecordButton(true)
-        }
-    }
-
     private func showSpeechRecognitionDeniedError() {
         let spAlertView = SPAlertView(
             title: "",
@@ -329,8 +341,6 @@ final class TextToMorseViewController: UIViewController {
         textView.text = Constants.needEnableAccessToSpeechRecognitionText
         textView.textColor = .systemOrange
     }
-
-    private var isRecording: Bool = false
 
     func animateRecordButton(_ isRecording: Bool) {
         UIView.animate(withDuration: 0.3, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
@@ -451,7 +461,7 @@ final class TextToMorseViewController: UIViewController {
                 continue
             }
         }
-        print("asidjasidjioasdjioasjiodaoijsd: ", morseText)
+
         return morseText.trimmingCharacters(in: .whitespaces)
     }
 
@@ -465,12 +475,17 @@ final class TextToMorseViewController: UIViewController {
         }
     }
 
-    @objc private func openMorseToTextVC() {
-        let vc = MorseToTextViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    private func filter(text: String) -> String {
+        var allowedCharacters = (Array(DictionaryManager.morseCodeDigits.keys)) + (Array(DictionaryManager.specialTable.keys))
+
+        if let localeDictionary = DictionaryManager.shared.getMorseDictionary(for: DictionaryManager.shared.locale) {
+            allowedCharacters += Array(localeDictionary.keys)
+        }
+        return text.filter { allowedCharacters.map({Character($0)}).contains($0) }
     }
 }
 
+// MARK: - Setup constraints
 extension TextToMorseViewController {
     private func setupConstraints() {
         view.addSubview(recordButton)
@@ -512,8 +527,10 @@ extension TextToMorseViewController {
 // MARK: - UITextViewDelegate
 extension TextToMorseViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let text = textView.text ?? ""
+        var text = textView.text ?? ""
         guard !isFromConstants(text: text) else { return }
+        text = filter(text: text)
+        textView.text = text
         let morseCode = convertTextToMorseCode(text)
         let attributedString = getDefaultTextViewAttributes(for: morseCode)
         morseCodeTextView.attributedText = attributedString
@@ -521,10 +538,6 @@ extension TextToMorseViewController: UITextViewDelegate {
         UIView.animate(withDuration: 0.5) {
             self.morseCodeTextView.isHidden = morseCode.isEmpty
         }
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return true
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "Röstigenkänning har ännu inte godkänts";
 "selectLanguage" = "Språkval";
 "needEnableAccessToSpeechRecognitionText" = "Tillåt åtkomst till röstigenkänning i inställningarna";
+"insertMorseCode" = "Infoga morse kod i formatet \"... . -..- -.-. ..-\"";
+"textInMorseCode" = "Text i morsekod";
+"morseCodeToText" = "Morse till text";

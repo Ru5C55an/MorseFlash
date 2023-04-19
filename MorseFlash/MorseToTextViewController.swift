@@ -11,7 +11,7 @@ import UIKit
 final class MorseToTextViewController: UIViewController {
     // MARK: - Constants
     private enum Constants {
-        static let tapToStartText: String = "Вставьте морзе код в формате \".... . .-.. .-.. ---\""
+        static let insertMorseCode = "insertMorseCode".localized
     }
 
     // MARK: - UI Elements
@@ -23,7 +23,7 @@ final class MorseToTextViewController: UIViewController {
         return stackView
     }()
 
-    private let morseCodeTextView: UITextView = {
+    private let resultTextView: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
         textView.isHidden = true
@@ -31,24 +31,31 @@ final class MorseToTextViewController: UIViewController {
         return textView
     }()
 
-    private lazy var textView: UITextView = {
+    private lazy var inputMorseCodeTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .systemGray6
         textView.font = UIFont.systemFont(ofSize: 19)
         textView.textAlignment = .center
-        textView.text = Constants.tapToStartText
+        textView.text = Constants.insertMorseCode
         textView.isEditable = true
         textView.layer.cornerRadius = 8.0
         textView.delegate = self
         textView.textContainerInset = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         textView.textColor = .label
         textView.autocorrectionType = .no
-//        textView.smartDashesType = .no
+        textView.smartDashesType = .no
         return textView
     }()
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRightBarButtonItem()
+        setupConstraints()
+        setupGestureRecognizers()
+    }
+
+    private func setupRightBarButtonItem() {
         // Создание кнопки с изображением шестеренки
         let settingsButton = UIButton(type: .system)
         settingsButton.setImage(UIImage(systemName: "globe"), for: .normal)
@@ -62,9 +69,9 @@ final class MorseToTextViewController: UIViewController {
 
         // Добавление кнопки на навигационную панель
         navigationItem.rightBarButtonItem = settingsBarButtonItem
+    }
 
-        setupConstraints()
-
+    private func setupGestureRecognizers() {
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissKeyboard)
@@ -79,22 +86,11 @@ final class MorseToTextViewController: UIViewController {
         view.addGestureRecognizer(swipeDownGesture)
     }
 
+    // MARK: - Handlers
     @objc private func showLanguagePicker() {
         DictionaryManager.shared.showLanguagePicker(from: self) {
-            self.textView.delegate?.textViewDidChange?(self.textView)
+            self.inputMorseCodeTextView.delegate?.textViewDidChange?(self.inputMorseCodeTextView)
         }
-    }
-
-    private func getDefaultTextViewAttributes(for morseCode: String) -> NSMutableAttributedString {
-        let attributedString = NSMutableAttributedString(string: morseCode)
-        let style = NSMutableParagraphStyle()
-        style.alignment = NSTextAlignment.center
-        attributedString.addAttributes([
-            .foregroundColor: UIColor.label,
-            .font: GlobalConstants.morseTextViewFont,
-            .paragraphStyle: style
-        ], range: NSMakeRange(0, morseCode.count))
-        return attributedString
     }
 
     @objc private func dismissKeyboard() {
@@ -106,6 +102,19 @@ final class MorseToTextViewController: UIViewController {
             return false
         }
         return true
+    }
+
+    // MARK: - Functions
+    private func getDefaultTextViewAttributes(for morseCode: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: morseCode)
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.center
+        attributedString.addAttributes([
+            .foregroundColor: UIColor.label,
+            .font: GlobalConstants.morseTextViewFont,
+            .paragraphStyle: style
+        ], range: NSMakeRange(0, morseCode.count))
+        return attributedString
     }
 
     private func convertMorseCodeToText(_ morseCode: String) -> String {
@@ -132,41 +141,35 @@ final class MorseToTextViewController: UIViewController {
                 continue
             }
         }
-
-        print("asiodaosdojiasoijdjoiasdjoiajoisdojiasd: ", text)
-
         return text
     }
 
     private func isFromConstants(text: String) -> Bool {
-        if text == Constants.tapToStartText {
+        if text == Constants.insertMorseCode {
             return true
         } else {
             return false
         }
     }
+
+    private func filter(text: String) -> String {
+        return text.filter { DictionaryManager.allowedMorseChars.map({Character($0)}).contains($0) }
+    }
 }
 
+// MARK: - Setup constraints
 extension MorseToTextViewController {
     private func setupConstraints() {
-        view.addSubview(textView)
+        view.addSubview(inputMorseCodeTextView)
         view.addSubview(topStackView)
 
-        topStackView.addArrangedSubview(morseCodeTextView)
-        topStackView.addArrangedSubview(textView)
+        topStackView.addArrangedSubview(resultTextView)
+        topStackView.addArrangedSubview(inputMorseCodeTextView)
 
         topStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
             make.left.right.equalToSuperview().inset(20)
             make.bottom.equalTo(view.keyboardLayoutGuide.snp.top).offset(-GlobalConstants.padding)
-        }
-
-        morseCodeTextView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(64)
-        }
-
-        textView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(100)
         }
     }
 }
@@ -174,23 +177,20 @@ extension MorseToTextViewController {
 // MARK: - UITextViewDelegate
 extension MorseToTextViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let morseCode = textView.text ?? ""
+        var morseCode = textView.text ?? ""
         guard !isFromConstants(text: morseCode) else { return }
-        print("asidojasoidjasiodjaiosd: ", morseCode)
+        morseCode = filter(text: morseCode)
+        textView.text = morseCode
         let text = convertMorseCodeToText(morseCode)
         let attributedString = getDefaultTextViewAttributes(for: text)
-        morseCodeTextView.attributedText = attributedString
+        resultTextView.attributedText = attributedString
         UIView.animate(withDuration: 0.5) {
-            self.morseCodeTextView.isHidden = text.isEmpty
+            self.resultTextView.isHidden = text.isEmpty
         }
     }
 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return true
-    }
-
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView == self.textView {
+        if textView == self.inputMorseCodeTextView {
             textView.textColor = .label
             if isFromConstants(text: textView.text ?? "") {
                 textView.text.removeAll()
@@ -200,14 +200,23 @@ extension MorseToTextViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = Constants.tapToStartText
+            textView.text = Constants.insertMorseCode
         }
     }
 }
 
-extension Dictionary where Value: Hashable {
-
+fileprivate extension Dictionary where Value: Hashable {
     func swapKeyValues() -> [Value : Key] {
-        return Dictionary<Value, Key>(uniqueKeysWithValues: lazy.map { ($0.value, $0.key) })
+        var dict = Dictionary<Value, Key>()
+        for (key, value) in self {
+            if dict.contains(where: { dictKey, dictValue in
+                dictKey == value
+            }) {
+                print("dict[\(value)] contains duplicate key: \"\(key)\"")
+            } else {
+                dict[value] = key
+            }
+        }
+        return dict
     }
 }

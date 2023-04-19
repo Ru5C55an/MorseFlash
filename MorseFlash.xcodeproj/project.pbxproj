@@ -15,7 +15,6 @@
 		4496A37029EEB98600B3357D /* MorseToTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4496A36F29EEB98600B3357D /* MorseToTextViewController.swift */; };
 		4496A37229EEBCD200B3357D /* DictionaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4496A37129EEBCD200B3357D /* DictionaryManager.swift */; };
 		4496A37429EECDB500B3357D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4496A37329EECDB500B3357D /* TabBarController.swift */; };
-		4496A38529EFF75900B3357D /* MorseKeyboardExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4496A37E29EFF75900B3357D /* MorseKeyboardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44A401A329E4B59A005C74D2 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 44A401A229E4B59A005C74D2 /* SPAlert */; };
 		44AB67B429D7269C0019153A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB67B329D7269C0019153A /* AppDelegate.swift */; };
 		44AB67B629D7269C0019153A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB67B529D7269C0019153A /* SceneDelegate.swift */; };
@@ -26,16 +25,6 @@
 		44AB67C929D728890019153A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44AB67C829D728890019153A /* SnapKit */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4496A38329EFF75900B3357D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 44AB67A829D7269C0019153A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4496A37D29EFF75900B3357D;
-			remoteInfo = MorseKeyboardExtension;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		4496A38929EFF75900B3357D /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -43,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				4496A38529EFF75900B3357D /* MorseKeyboardExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +84,6 @@
 		4496A36F29EEB98600B3357D /* MorseToTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseToTextViewController.swift; sourceTree = "<group>"; };
 		4496A37129EEBCD200B3357D /* DictionaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryManager.swift; sourceTree = "<group>"; };
 		4496A37329EECDB500B3357D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		4496A37E29EFF75900B3357D /* MorseKeyboardExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MorseKeyboardExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AB67B029D7269C0019153A /* MorseFlash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseFlash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AB67B329D7269C0019153A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AB67B529D7269C0019153A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,13 +95,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4496A37B29EFF75900B3357D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44AB67AD29D7269C0019153A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				44AB67B029D7269C0019153A /* MorseFlash.app */,
-				4496A37E29EFF75900B3357D /* MorseKeyboardExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,25 +156,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4496A37D29EFF75900B3357D /* MorseKeyboardExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4496A38629EFF75900B3357D /* Build configuration list for PBXNativeTarget "MorseKeyboardExtension" */;
-			buildPhases = (
-				4496A37A29EFF75900B3357D /* Sources */,
-				4496A37B29EFF75900B3357D /* Frameworks */,
-				4496A37C29EFF75900B3357D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MorseKeyboardExtension;
-			packageProductDependencies = (
-			);
-			productName = MorseKeyboardExtension;
-			productReference = 4496A37E29EFF75900B3357D /* MorseKeyboardExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		44AB67AF29D7269C0019153A /* MorseFlash */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44AB67C429D7269E0019153A /* Build configuration list for PBXNativeTarget "MorseFlash" */;
@@ -208,7 +168,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4496A38429EFF75900B3357D /* PBXTargetDependency */,
 			);
 			name = MorseFlash;
 			packageProductDependencies = (
@@ -230,9 +189,6 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					4496A37D29EFF75900B3357D = {
-						CreatedOnToolsVersion = 14.3;
-					};
 					44AB67AF29D7269C0019153A = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -269,19 +225,11 @@
 			projectRoot = "";
 			targets = (
 				44AB67AF29D7269C0019153A /* MorseFlash */,
-				4496A37D29EFF75900B3357D /* MorseKeyboardExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4496A37C29EFF75900B3357D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44AB67AE29D7269C0019153A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,13 +244,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4496A37A29EFF75900B3357D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44AB67AC29D7269C0019153A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,14 +261,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4496A38429EFF75900B3357D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4496A37D29EFF75900B3357D /* MorseKeyboardExtension */;
-			targetProxy = 4496A38329EFF75900B3357D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4461695329DAF9950070AC9A /* Localizable.strings */ = {
@@ -395,58 +328,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4496A38729EFF75900B3357D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MorseKeyboardExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MorseKeyboardExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = RuslanSadykov.MorseFlash.MorseKeyboardExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		4496A38829EFF75900B3357D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MorseKeyboardExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MorseKeyboardExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = RuslanSadykov.MorseFlash.MorseKeyboardExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 		44AB67C229D7269E0019153A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -646,15 +527,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4496A38629EFF75900B3357D /* Build configuration list for PBXNativeTarget "MorseKeyboardExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4496A38729EFF75900B3357D /* Debug */,
-				4496A38829EFF75900B3357D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		44AB67AB29D7269C0019153A /* Build configuration list for PBXProject "MorseFlash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

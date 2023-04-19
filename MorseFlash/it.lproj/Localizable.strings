@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "Il riconoscimento vocale non è ancora autorizzato";
 "selectLanguage" = "Scelta della lingua";
 "needEnableAccessToSpeechRecognitionText" = "Consenti l'accesso al riconoscimento vocale nelle impostazioni";
+"insertMorseCode" = "Inserisci il codice Morse nel formato \"... . -..- -.-. ..-\"";
+"textInMorseCode" = "Testo in codice Morse";
+"morseCodeToText" = "Codice Morse in testo";

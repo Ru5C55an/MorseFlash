@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "Speech recognition is not yet authorized";
 "selectLanguage" = "Language selection";
 "needEnableAccessToSpeechRecognitionText" = "Allow access to speech recognition in settings";
+"insertMorseCode" = "Insert Morse code in the format \"... . -..- -.-. ..-\"";
+"textInMorseCode" = "Text in Morse code";
+"morseCodeToText" = "Morse code to text";

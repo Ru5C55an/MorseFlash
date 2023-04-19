@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "音声認識はまだ承認されていません";
 "selectLanguage" = "言語の選択";
 "needEnableAccessToSpeechRecognitionText" = "設定で音声認識へのアクセスを許可する";
+"insertMorseCode" = "モールス符号を「... . -..- -.-. ..-」の形式で挿入してください";
+"textInMorseCode" = "モールス信号のテキスト";
+"morseCodeToText" = "モールス信号からテキストに変換";

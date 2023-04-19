@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "Распознавание речи еще не авторизовано";
 "selectLanguage" = "Выбор языка";
 "needEnableAccessToSpeechRecognitionText" = "Разрешить доступ к распознаванию речи в настройках";
+"insertMorseCode" = "Вставьте морзе код в формате \".... . .-.. .-.. ---\"";
+"textInMorseCode" = "Текст в Морзе";
+"morseCodeToText" = "Морзе в текст";

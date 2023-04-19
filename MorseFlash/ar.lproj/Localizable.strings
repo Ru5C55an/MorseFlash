@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "لم يتم تفويض تعرف الكلام حتى الآن";
 "selectLanguage" = "اللغة";
 "needEnableAccessToSpeechRecognitionText" = "السماح بالوصول إلى التعرف على الكلام في الإعدادات";
+"insertMorseCode" = "أدخل رمز المورس في التنسيق \"... . -..- -.-. ..-\"";
+"textInMorseCode" = "المورزي بالنص";
+"morseCodeToText" = "النص بالمورزي";

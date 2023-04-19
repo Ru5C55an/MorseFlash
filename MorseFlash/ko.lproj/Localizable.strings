@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "음성 인식이 아직 승인되지 않았습니다";
 "selectLanguage" = "언어 선택";
 "needEnableAccessToSpeechRecognitionText" = "설정에서 음성 인식 액세스 허용";
+"insertMorseCode" = "모스 부호를 \"... . -..- -.-. ..-\" 형식으로 삽입하세요";
+"textInMorseCode" = "모스 부호로 된 텍스트";
+"morseCodeToText" = "모스 부호를 텍스트로 변환";

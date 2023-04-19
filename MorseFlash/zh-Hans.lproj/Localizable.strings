@@ -12,3 +12,6 @@
 "notRecognisedSpeechRecognition" = "语音识别尚未获得授权";
 "selectLanguage" = "语言选择";
 "needEnableAccessToSpeechRecognitionText" = "在设置中允许语音识别访问";
+"insertMorseCode" = "将摩尔斯码以格式 \"... . -..- -.-. ..-\" 插入";
+"textInMorseCode" = "摩尔斯电码文本";
+"morseCodeToText" = "摩尔斯电码转文本";
