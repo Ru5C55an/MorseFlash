@@ -15,3 +15,7 @@
 "insertMorseCode" = "Infoga morse kod i formatet \"... . -..- -.-. ..-\"";
 "textInMorseCode" = "Text i morsekod";
 "morseCodeToText" = "Morse till text";
+"selectLanguage" = "Välj först önskat språk genom att klicka på globikonen i det övre högra hörnet av skärmen";
+"availableCharacters" = "Det är möjligt att ange bokstäver från alfabetet för det valda språket, siffror och vissa specialtecken";
+"unavailableCharacter" = "Tecknet \"%1$@\" finns inte i alfabetet.";
+"needChangeLanguageInApp" = "Ändra språket i appen.";

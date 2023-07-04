@@ -10,7 +10,7 @@ import AVFoundation
 import SnapKit
 import Speech
 import FittedSheets
-import SPAlert
+import AlertKit
 
 final class TextToMorseViewController: UIViewController {
     // MARK: - Constants
@@ -93,6 +93,13 @@ final class TextToMorseViewController: UIViewController {
         return button
     }()
 
+    private lazy var infoBarButtonItem = UIBarButtonItem(
+        image: UIImage(systemName: "info.circle"),
+        style: .plain,
+        target: self,
+        action: #selector(infoBarButtonDidTap)
+    )
+
     // MARK: - Properties
     private var speechRecognizer = SFSpeechRecognizer(locale: Locale.current)
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -104,6 +111,7 @@ final class TextToMorseViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "textInMorseCode".localized
         // Создание кнопки с изображением шестеренки
         let settingsButton = UIButton(type: .system)
         settingsButton.setImage(UIImage(systemName: "globe"), for: .normal)
@@ -136,6 +144,18 @@ final class TextToMorseViewController: UIViewController {
         // Request speech recognition authorization
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             print("SFSpeechRecognizer Auth status: ", authStatus)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem = infoBarButtonItem
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.isNeedTutorial != false {
+            showInfo()
         }
     }
 
@@ -218,6 +238,10 @@ final class TextToMorseViewController: UIViewController {
     @objc private func openMorseToTextVC() {
         let vc = MorseToTextViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc private func infoBarButtonDidTap() {
+        showInfo()
     }
 
     // MARK: - Functions
@@ -309,35 +333,35 @@ final class TextToMorseViewController: UIViewController {
     }
 
     private func showSpeechRecognitionDeniedError() {
-        let spAlertView = SPAlertView(
-            title: "",
-            message: Constants.deniedSpeechRecognition,
-            preset: .error
+        let alertView = AlertKit.AlertAppleMusic16View(
+            title: Constants.deniedSpeechRecognition,
+            subtitle: nil,
+            icon: .error
         )
-        spAlertView.duration = Constants.alertPresentDuration
-        spAlertView.present(haptic: .error)
+        alertView.duration = Constants.alertPresentDuration
+        alertView.present(on: self.view)
         textView.text = Constants.needEnableAccessToSpeechRecognitionText
         textView.textColor = .systemOrange
     }
 
     private func showNotAuthorizedSpeechRecognitionError() {
-        let spAlertView = SPAlertView(
-            title: "",
-            message: Constants.notRecognisedSpeechRecognition,
-            preset: .error
+        let alertView = AlertKit.AlertAppleMusic16View(
+            title: Constants.notRecognisedSpeechRecognition,
+            subtitle: nil,
+            icon: .error
         )
-        spAlertView.duration = Constants.alertPresentDuration
-        spAlertView.present(haptic: .error)
+        alertView.duration = Constants.alertPresentDuration
+        alertView.present(on: self.view)
     }
 
     private func showRestrictedSpeechRecognitionError() {
-        let spAlertView = SPAlertView(
-            title: "",
-            message: Constants.restrictedSpeechRecognition,
-            preset: .error
+        let alertView = AlertKit.AlertAppleMusic16View(
+            title: Constants.restrictedSpeechRecognition,
+            subtitle: nil,
+            icon: .error
         )
-        spAlertView.duration = Constants.alertPresentDuration
-        spAlertView.present(haptic: .error)
+        alertView.duration = Constants.alertPresentDuration
+        alertView.present(on: self.view)
         textView.text = Constants.needEnableAccessToSpeechRecognitionText
         textView.textColor = .systemOrange
     }
@@ -477,11 +501,40 @@ final class TextToMorseViewController: UIViewController {
 
     private func filter(text: String) -> String {
         var allowedCharacters = (Array(DictionaryManager.morseCodeDigits.keys)) + (Array(DictionaryManager.specialTable.keys))
-
         if let localeDictionary = DictionaryManager.shared.getMorseDictionary(for: DictionaryManager.shared.locale) {
             allowedCharacters += Array(localeDictionary.keys)
         }
-        return text.filter { allowedCharacters.map({Character($0)}).contains($0) }
+        allowedCharacters = allowedCharacters.map({ $0 })
+        return text.filter { character in
+            if allowedCharacters.contains(where: { $0 == character.lowercased() }) {
+                return true
+            } else {
+                AlertKitAPI.present(
+                    title: String(
+                        format: NSLocalizedString("unavailableCharacter", comment: ""),
+                        "\(character)"
+                    ),
+                    subtitle: "needChangeLanguageInApp".localized,
+                    icon: .custom(UIImage(systemName: "exclamationmark.circle")!),
+                    style: .iOS16AppleMusic,
+                    haptic: .warning
+                )
+                return false
+            }
+        }
+    }
+
+    private func showInfo() {
+        let alertView = AlertKit.AlertAppleMusic16View(
+            title: "selectLanguage".localized ,
+            subtitle: "availableCharacters".localized,
+            icon: .custom(UIImage(systemName: "info.bubble")!)
+        )
+        alertView.dismissByTap = true
+        alertView.dismissInTime = false
+        alertView.present(on: self.view) {
+            UserDefaults.standard.isNeedTutorial = false
+        }
     }
 }
 
@@ -496,8 +549,8 @@ extension TextToMorseViewController {
         topStackView.addArrangedSubview(flashlightButton)
 
         topStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
-            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
+            make.left.right.equalToSuperview().inset(GlobalConstants.padding)
         }
 
         morseCodeTextView.snp.makeConstraints { make in
@@ -535,9 +588,7 @@ extension TextToMorseViewController: UITextViewDelegate {
         let attributedString = getDefaultTextViewAttributes(for: morseCode)
         morseCodeTextView.attributedText = attributedString
         flashlightButton.isEnabled = !morseCode.isEmpty
-        UIView.animate(withDuration: 0.5) {
-            self.morseCodeTextView.isHidden = morseCode.isEmpty
-        }
+        morseCodeTextView.isHidden = morseCode.isEmpty
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {

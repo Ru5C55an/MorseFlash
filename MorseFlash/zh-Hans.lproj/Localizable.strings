@@ -15,3 +15,7 @@
 "insertMorseCode" = "将摩尔斯码以格式 \"... . -..- -.-. ..-\" 插入";
 "textInMorseCode" = "摩尔斯电码文本";
 "morseCodeToText" = "摩尔斯电码转文本";
+"selectLanguage" = "首先，通过点击屏幕右上角的地球图标，选择所需的语言";
+"availableCharacters" = "可以输入所选语言的字母、数字和一些特殊字符。";
+"unavailableCharacter" = "字母 \"%1$@\" 不在字母表中。";
+"needChangeLanguageInApp" = "请在应用程序中更改语言。";

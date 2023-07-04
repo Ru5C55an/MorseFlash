@@ -15,3 +15,7 @@
 "insertMorseCode" = "モールス符号を「... . -..- -.-. ..-」の形式で挿入してください";
 "textInMorseCode" = "モールス信号のテキスト";
 "morseCodeToText" = "モールス信号からテキストに変換";
+"selectLanguage" = "まず、画面右上の地球儀のアイコンをクリックして、希望の言語を選択します。";
+"availableCharacters" = "選択した言語のアルファベット、数字、特殊文字を入力できます。";
+"unavailableCharacter" = "文字 \"%1$@\" はアルファベットに存在しません。";
+"needChangeLanguageInApp" = "アプリ内で言語を変更してください。";

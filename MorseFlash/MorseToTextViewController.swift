@@ -50,6 +50,7 @@ final class MorseToTextViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "morseCodeToText".localized
         setupRightBarButtonItem()
         setupConstraints()
         setupGestureRecognizers()

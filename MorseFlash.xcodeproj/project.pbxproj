@@ -23,6 +23,8 @@
 		44AB67BD29D7269E0019153A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AB67BC29D7269E0019153A /* Assets.xcassets */; };
 		44AB67C029D7269E0019153A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AB67BE29D7269E0019153A /* LaunchScreen.storyboard */; };
 		44AB67C929D728890019153A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44AB67C829D728890019153A /* SnapKit */; };
+		44FA689F2A5368210077E88D /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44FA689E2A5368210077E88D /* AlertKit */; };
+		44FA68A12A536A590077E88D /* UserDefaults + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA68A02A536A590077E88D /* UserDefaults + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +94,7 @@
 		44AB67BC29D7269E0019153A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44AB67BF29D7269E0019153A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44AB67C129D7269E0019153A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44FA68A02A536A590077E88D /* UserDefaults + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FA689F2A5368210077E88D /* AlertKit in Frameworks */,
 				44A401A329E4B59A005C74D2 /* SPAlert in Frameworks */,
 				4455A34B29D9EA7500F3A9EE /* FittedSheets in Frameworks */,
 				44AB67C929D728890019153A /* SnapKit in Frameworks */,
@@ -149,6 +153,7 @@
 				4461696129DAFEF80070AC9A /* String + Extensions.swift */,
 				4496A37129EEBCD200B3357D /* DictionaryManager.swift */,
 				4496A37329EECDB500B3357D /* TabBarController.swift */,
+				44FA68A02A536A590077E88D /* UserDefaults + Extension.swift */,
 			);
 			path = MorseFlash;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				44AB67C829D728890019153A /* SnapKit */,
 				4455A34A29D9EA7500F3A9EE /* FittedSheets */,
 				44A401A229E4B59A005C74D2 /* SPAlert */,
+				44FA689E2A5368210077E88D /* AlertKit */,
 			);
 			productName = MorzeFlash;
 			productReference = 44AB67B029D7269C0019153A /* MorseFlash.app */;
@@ -219,6 +225,7 @@
 				44AB67C729D728890019153A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4455A34929D9EA7500F3A9EE /* XCRemoteSwiftPackageReference "FittedSheets" */,
 				44A401A129E4B59A005C74D2 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				44FA689D2A5368210077E88D /* XCRemoteSwiftPackageReference "AlertKit" */,
 			);
 			productRefGroup = 44AB67B129D7269C0019153A /* Products */;
 			projectDirPath = "";
@@ -256,6 +263,7 @@
 				44AB67B429D7269C0019153A /* AppDelegate.swift in Sources */,
 				4496A37029EEB98600B3357D /* MorseToTextViewController.swift in Sources */,
 				4461696229DAFEF80070AC9A /* String + Extensions.swift in Sources */,
+				44FA68A12A536A590077E88D /* UserDefaults + Extension.swift in Sources */,
 				44AB67B629D7269C0019153A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = RuslanSadykov.MorseFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -510,7 +518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = RuslanSadykov.MorseFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -572,6 +580,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		44FA689D2A5368210077E88D /* XCRemoteSwiftPackageReference "AlertKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/AlertKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,6 +605,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44AB67C729D728890019153A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		44FA689E2A5368210077E88D /* AlertKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44FA689D2A5368210077E88D /* XCRemoteSwiftPackageReference "AlertKit" */;
+			productName = AlertKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

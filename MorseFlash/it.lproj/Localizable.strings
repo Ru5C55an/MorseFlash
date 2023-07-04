@@ -15,3 +15,7 @@
 "insertMorseCode" = "Inserisci il codice Morse nel formato \"... . -..- -.-. ..-\"";
 "textInMorseCode" = "Testo in codice Morse";
 "morseCodeToText" = "Codice Morse in testo";
+"selectLanguage" = "Per prima cosa, selezionare la lingua desiderata facendo clic sull'icona del mappamondo nell'angolo in alto a destra dello schermo.";
+"availableCharacters" = "È possibile inserire lettere dell'alfabeto della lingua selezionata, numeri e alcuni caratteri speciali.";
+"unavailableCharacter" = "Il carattere \"%1$@\" non è disponibile nell'alfabeto.";
+"needChangeLanguageInApp" = "Cambia la lingua nell'applicazione.";

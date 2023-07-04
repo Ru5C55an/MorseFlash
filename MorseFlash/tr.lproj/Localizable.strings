@@ -15,3 +15,7 @@
 "insertMorseCode" = "Morse kodunu \"... . -..- -.-. ..-\" formatında yerleştirin";
 "textInMorseCode" = "Mors kodlu metin";
 "morseCodeToText" = "Mors kodundan metne çevirme";
+"selectLanguage" = "İlk olarak, ekranın sağ üst köşesindeki küre simgesine tıklayarak istediğiniz dili seçin";
+"availableCharacters" = "Seçilen dilin alfabesinden harfler, sayılar ve bazı özel karakterler girebilirsiniz";
+"unavailableCharacter" = "Karakter \"%1$@\" alfabe içinde mevcut değil.";
+"needChangeLanguageInApp" = "Dili uygulamada değiştirin.";

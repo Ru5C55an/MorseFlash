@@ -15,3 +15,7 @@
 "insertMorseCode" = "Fügen Sie den Morsecode im Format \"... . -..- -.-. ..-\" ein";
 "textInMorseCode" = "Text in Morsecode";
 "morseCodeToText" = "Morsecode in Text";
+"selectLanguage" = "Wählen Sie zunächst die gewünschte Sprache aus, indem Sie auf das Globus-Symbol in der oberen rechten Ecke des Bildschirms klicken";
+"availableCharacters" = "Es ist möglich, Buchstaben aus dem Alphabet der gewählten Sprache, Zahlen und einige Sonderzeichen einzugeben";
+"unavailableCharacter" = "Das Zeichen \"%1$@\" ist im Alphabet nicht verfügbar.";
+"needChangeLanguageInApp" = "Ändern Sie die Sprache in der App.";
